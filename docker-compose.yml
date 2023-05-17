@@ -1,10 +1,11 @@
-version: '3'
-
 services:
-  redis-server:
-    image: 'redis'
-
   go-app:
     build: .
     ports:
       - '4001:8081'
+    restart: on-failure
+
+  redis-server:
+    image: 'redis'
+
+version: '3'
